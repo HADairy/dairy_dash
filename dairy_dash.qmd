@@ -89,6 +89,8 @@ datatable(fert_health_data, filter = list(position = 'topleft', clear = FALSE),
 
 ::: {.card title="Download the data"}
 [Download excel file]()
+
+Need to actually add the link to download the file once the file has been created
 :::
 
 ### Row {.tabset height="75%"}
@@ -104,7 +106,7 @@ ADD ANY DATA COMMENTS HERE
 # To do / queries?
 
 ::: {.card title="To do"}
-#### Data file things 
+#### Data file things
 
 -   Create a data dictionary
 -   Create an excel file containing all clean data sets (on different worksheets) and data dictionary
@@ -114,13 +116,15 @@ ADD ANY DATA COMMENTS HERE
 
 -   ~~Outline pages~~
 
+-   ~~Add logo~~
+
 -   ~~Set up master script linking to appropriate scripts for overall dashbaord set up~~
 
--   Create github repo
+-   ~~Create github repo~~
 
--   Create github organisation
+-   ~~Create github organisation~~
 
--   Create github page
+-   ~~Create github page~~
 
 -   Create git hub tinyurl
 
