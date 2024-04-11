@@ -12,13 +12,12 @@ theme: flatly_edited.scss
 ```{r Dashboard set up, echo=FALSE}
 
 source("master_script.R")
+# data objects 
+#fert_health_data
+#prod_data
+#stock_take_data
 ```
 
-# Home
-
-## Column
-
-Overall summary or something here maybe?
 
 # Stock Take
 
@@ -32,7 +31,7 @@ Graphs go here
 
 # Production
 
-## Column
+## Column {width="20%"}
 
 summary boxes here
 
@@ -126,7 +125,7 @@ ADD ANY DATA COMMENTS HERE
 
 -   ~~Create github page~~
 
--   Create git hub tinyurl
+-   ~~Create git hub tinyurl~~
 
 #### Page things
 
