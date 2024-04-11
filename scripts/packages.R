@@ -1,0 +1,13 @@
+# libraries
+require(shinydashboard)
+require(tidyverse)
+require(knitr)
+require(rmarkdown)
+require(ggplot2)
+require(DT)
+require(bslib)
+require(shiny)
+require(bsicons)
+require(htmltools)
+require(readxl)
+require(leaflet)

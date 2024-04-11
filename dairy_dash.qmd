@@ -1,0 +1,162 @@
+---
+title: "HAU Dairy"
+logo: "images/nl_agridat_hex_tp.png"
+format: dashboard
+#server: shiny
+date-modified: 2024-03-27
+orientation: columns
+expandable: false
+theme: flatly_edited.scss
+---
+
+```{r Dashboard set up, echo=FALSE}
+
+source("master_script.R")
+```
+
+# Home
+
+## Column
+
+Overall summary or something here maybe?
+
+# Stock Take
+
+## Column
+
+summary boxes here
+
+## Column
+
+Graphs go here
+
+# Production
+
+## Column
+
+summary boxes here
+
+## Column
+
+Graphs go here
+
+# Fertility
+
+## Column
+
+summary boxes here
+
+## Column
+
+Graphs go here
+
+# Data
+
+## Column {.tabset width="70%"}
+
+```{r}
+#| title: Stock take 
+datatable(stock_take_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+```{r}
+#| title: Production
+
+datatable(prod_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+```{r}
+#| title: Fertility and Health 
+
+datatable(fert_health_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+## Column {width="30%"}
+
+### Row {height="25%"}
+
+::: {.card title="Download the data"}
+[Download excel file]()
+:::
+
+### Row {.tabset height="75%"}
+
+::: {.card title="Information"}
+ADD DATA INFORMATION HERE
+
+**Comments**
+
+ADD ANY DATA COMMENTS HERE
+:::
+
+# To do / queries?
+
+::: {.card title="To do"}
+#### Data file things 
+
+-   Create a data dictionary
+-   Create an excel file containing all clean data sets (on different worksheets) and data dictionary
+-   Or potentially create separate excel files for each?
+
+#### General dashboard things
+
+-   ~~Outline pages~~
+
+-   ~~Set up master script linking to appropriate scripts for overall dashbaord set up~~
+
+-   Create github repo
+
+-   Create github organisation
+
+-   Create github page
+
+-   Create git hub tinyurl
+
+#### Page things
+
+-   Home page?
+-   Stock take
+    -   Identify key summary variables
+
+    -   Identify key graphs
+
+    -   Decide on layout?
+-   Production
+    -   Identify key summary variables
+
+    -   Identify key graphs
+
+    -   Decide on layout?
+-   Fertility and health
+    -   Identify key summary variables
+
+    -   Identify key graphs
+
+    -   Decide on layout?
+-   Data
+    -   Add all data set tables to page
+
+    -   Need to check the format of the date columns in the data tables
+:::
+
+::: {.card title="Queries"}
+-   Do we want to separate the fertility data and the health data into separate tables?
+
+    -   This would remove some of the suffixes at the end of the variables (e.g., \_fert)
+
+-   Want to add an individual column for month and for year?
+
+    -   Could be done just behind the scenes?
+:::
