@@ -15,3 +15,5 @@ source("scripts/pallettes.R")
 ## load data prep
 source("scripts/data_prep.R")
 
+#load graph objects
+source("scripts/graphs.R")

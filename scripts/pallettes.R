@@ -1,42 +1,79 @@
-# # colour pallettes
+# colour palettes
+
+harper_pal <- c("#023859",
+                "#16558C",
+                "#A63740",
+                "#F28A80",
+                "#A6290D",
+                "#F29E38",
+                "#FFE800",
+                "#468A50",
+                "#CCD96C",
+                "#0388A6")
+
+year_pal <- c("#468a50", 
+              "#619541", 
+              "#829e2e", 
+              "#a8a516",  
+              "#d2a800",
+              "#ffa600")
+
+cb_pal <- c("#E69F00", 
+           "#56B4E9",
+           "#009E73", 
+           "#F0E442", 
+           "#0072B2", 
+           "#D55E00",
+           "#CC79A7")
+
+tol_pal <- c("#332288",
+             "#117733",
+             "#44AA99",
+             "#88CCEE",
+             "#DDCC77",
+             "#CC6677",
+             "#AA4499")
+
+cb_pal_2 <- c("#E69F00", 
+              "#56B4E9",
+              "#009E73", 
+              "#F0E442", 
+              "#0072B2", 
+              "#D55E00",
+              "#CC79A7",
+              "#332288",
+              "#117733",
+              "#44AA99",
+              "#88CCEE",
+              "#DDCC77",
+              "#CC6677",
+              "#AA4499")
+  
+  
+  
+# "#999999"
+# "#000000" 
+# "#E69F00" 
+# "#56B4E9" 
+# "#009E73" 
+# "#F0E442" 
+# "#0072B2" 
+# "#D55E00"
+# "#CC79A7"
 # 
+# # Tol
+# "#332288"
+# "#117733"
+# "#44AA99"
+# "#88CCEE"
+# "#DDCC77"
+# "#CC6677"
+# "#AA4499"
 # 
-# sector_pal <- c("#E69F00", 
-#                 "#56B4E9", 
-#                 "#009E73", 
-#                 "#F0E442")
-# # , "#0072B2", "#D55E00", "#CC79A7") # can add more if needed later))
-# 
-# ghgpal <- c("#FE6100", 
-#             "#FFB000", 
-#             "#785EF0", 
-#             "#DC267F")
-# 
-# dir_pal <- c("darkorange", "orangered", "indianred4", "firebrick", "tan3" ) # dark orange
-# 
-# indir_pal <- c("lightsalmon","orange","coral",  "chocolate1", "sienna3", "tomato3" ,"lightsalmon3", "orange3", "tomato",  "tan") # light orange
-# 
-# ch4_pal <-c("mediumorchid4","mediumorchid1") # purpleblue
-# 
-# n2o_pal <- c("maroon3","hotpink","lightpink") #pink purple
-# 
-# detail_ghg_pal <- c("darkorange", 
-#                     "orangered",
-#                     "indianred4", 
-#                     "firebrick", 
-#                     "tan3",# direct carbon
-#                     # "lightsalmon",
-#                     "orange",
-#                     "coral",
-#                     "chocolate1", 
-#                     "sienna3",
-#                     "tomato3" ,
-#                     "lightsalmon3",
-#                     "orange3",
-#                     "tomato", 
-#                     "tan", # indirect carbon light orange
-#                     "mediumorchid4",
-#                     "mediumorchid1", # methane purpleblue
-#                     "maroon3",
-#                     "hotpink",
-#                     "lightpink") # n2o pink purple
+# #IBM
+# "#648FFF"
+# "#882255"
+# "#785EF0"
+# "#DC267F"
+# "#FE6100"
+# "#FFB000"

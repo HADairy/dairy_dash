@@ -18,18 +18,90 @@ source("master_script.R")
 #stock_take_data
 ```
 
+# Production
 
-# Stock Take
+## Column {width="35%"}
 
-## Column
+::: {.card title="Latest Monthly Averages"}
+```{r summary boxes}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Month")),
+    value = (paste(latest_month, latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (latest_inmilk_av),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production <br>")),
+    value = my_comma(latest_milk_av / 100),
+    p(HTML("hectolitres")),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production per cow <br>")),
+    value = (latest_milk_cow_av),
+    p(HTML("litres")),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+value_box(
+    title = h1(HTML("Fat <br>")),
+    value = (latest_fat_av),
+    p(HTML("unit?")),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Protien <br>")),
+    value = (latest_protien_av),
+    p(HTML("unit?")),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Somatic Cell Count <br>")),
+    value = (latest_scc_av),
+    p(HTML("unit?")),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("BactoScan <br>")),
+    value = (latest_bs_av),
+    p(HTML("unit?")),
+    theme = "teal"
+  ),
+  width = 1 / 2
+)
 
-summary boxes here
+```
+:::
 
-## Column
+## Column {.tabset}
 
 Graphs go here
 
-# Production
+# Fertility
 
 ## Column {width="20%"}
 
@@ -39,9 +111,9 @@ summary boxes here
 
 Graphs go here
 
-# Fertility
+# Stock Take
 
-## Column
+## Column {width="20%"}
 
 summary boxes here
 
@@ -52,15 +124,6 @@ Graphs go here
 # Data
 
 ## Column {.tabset width="70%"}
-
-```{r}
-#| title: Stock take 
-datatable(stock_take_data, filter = list(position = 'topleft', clear = FALSE),
-          extensions = 'Buttons',
-          options = list(dom = 'Bfrtip',
-                         buttons = c('copy')))
-
-```
 
 ```{r}
 #| title: Production
@@ -76,6 +139,15 @@ datatable(prod_data, filter = list(position = 'topleft', clear = FALSE),
 #| title: Fertility and Health 
 
 datatable(fert_health_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+```{r}
+#| title: Stock take 
+datatable(stock_take_data, filter = list(position = 'topleft', clear = FALSE),
           extensions = 'Buttons',
           options = list(dom = 'Bfrtip',
                          buttons = c('copy')))
@@ -137,7 +209,7 @@ ADD ANY DATA COMMENTS HERE
 
     -   Decide on layout?
 -   Production
-    -   Identify key summary variables
+    -   ~~Identify key summary variables~~
 
     -   Identify key graphs
 
