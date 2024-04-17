@@ -751,9 +751,8 @@ datatable(stock_take_data, filter = list(position = 'topleft', clear = FALSE),
 ### Row {height="25%"}
 
 ::: {.card title="Download the data"}
-[Download excel file]()
+[Download excel file](https://github.com/HADairy/dairy_dash/raw/main/HA_dairy_master.xlsx)
 
-Need to actually add the link to download the file once the file has been created
 :::
 
 ### Row {.tabset height="75%"}
@@ -772,7 +771,7 @@ ADD ANY DATA COMMENTS HERE
 #### Data file things
 
 -   Create a data dictionary
--   Create an excel file containing all clean data sets (on different worksheets) and data dictionary
+-   ~~ Create an excel file containing all clean data sets (on different worksheets) and data dictionary ~~
 -   Or potentially create separate excel files for each?
 
 #### General dashboard things
@@ -803,17 +802,17 @@ ADD ANY DATA COMMENTS HERE
 -   Production
     -   ~~Identify key summary variables~~
 
-    -   Identify key graphs
+    -   ~~ Identify key graphs ~~
 
-    -   Decide on layout?
--   Fertility and health
-    -   Identify key summary variables
+    -   ~~ Decide on layout? ~~
+-   ~~ Fertility and health ~~
+    -   ~~ Identify key summary variables ~~
 
-    -   Identify key graphs
+    -  ~~ Identify key graphs ~~
 
-    -   Decide on layout?
+    -   ~~ Decide on layout? ~~
 -   Data
-    -   Add all data set tables to page
+    -  ~~ Add all data set tables to page ~~
 
     -   Need to check the format of the date columns in the data tables
 :::
