@@ -18,16 +18,14 @@ source("master_script.R")
 #stock_take_data
 ```
 
-# Production
+# Production: Yield
 
 ## Column {width="35%"}
-
-::: {.card title="Latest Monthly Averages"}
-```{r summary boxes}
+```{r summary boxes prod_yield}
 layout_column_wrap(
   value_box(
     title = h1(HTML("Month")),
-    value = (paste(latest_month, latest_year)),
+    value = (paste(latest_day, latest_month, latest_year)),
     theme = "success",
     showcase = NULL,
     showcase_layout = "left center",
@@ -49,7 +47,7 @@ layout_column_wrap(
     title = h1(HTML("Milk production <br>")),
     value = my_comma(latest_milk_av / 100),
     p(HTML("hectolitres")),
-    theme = "success",
+    theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
     full_screen = TRUE,
@@ -60,6 +58,70 @@ layout_column_wrap(
     title = h1(HTML("Milk production per cow <br>")),
     value = (latest_milk_cow_av),
     p(HTML("litres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+
+  width = 1 / 2
+)
+
+```
+
+
+## Graphs {.tabset}
+
+### Detailed trends {.tabset}
+
+```{r yield_graph_1}
+#| title: Daily milk production
+milk_prod_detail_plot
+```
+
+```{r yield_graph_2}
+#| title: Daily milk production per cow
+milk_prod_cow_detail_plot
+```
+
+### Yearly averages and totals {.tabset}
+
+```{r yield_graph_3}
+#| title: Daily milk production
+year_av_milk_prod_plot 
+```
+
+```{r yield_graph_4}
+#| title: Daily milk production per cow
+year_av_milk_prod_cow_plot
+```
+
+
+### Monthly averages and totals {.tabset}
+
+```{r yield_graph_5}
+#| title: Daily milk production
+year_av_milk_prod_cow_plot
+```
+
+```{r yield_graph_6}
+#| title: Daily milk production per cow
+month_av_in_milk_plot
+```
+
+
+
+# Production: Milk quality
+
+## Column {width="35%"}
+### Row {height="20%"}
+```{r summ_box_date_prod}
+layout_column_wrap(   
+value_box(
+    title = h1(HTML("Latest data entry")),
+    value = (paste(latest_day, latest_month, latest_year)),
     theme = "success",
     showcase = NULL,
     showcase_layout = "left center",
@@ -67,6 +129,31 @@ layout_column_wrap(
     fill = FALSE,
     height = 150L
   ),
+value_box(
+    title = h1(HTML("Summary month")),
+    value = (paste(latest_month, latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+),
+width = 1/2)
+```
+### Row {height="30%"}
+
+```{r}
+  bslib::value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (latest_inmilk_av),
+    theme = "success"
+  )
+```
+
+### Row {height="50%"}
+```{r summary boxes prod_quality}
+layout_column_wrap(
 value_box(
     title = h1(HTML("Fat <br>")),
     value = (latest_fat_av),
@@ -95,31 +182,480 @@ value_box(
 )
 
 ```
-:::
 
-## Column {.tabset}
 
-Graphs go here
+## Graphs {.tabset}
+
+### Detailed trends {.tabset}
+```{r qual_graph_1}
+#| title: Fat
+fat_detail_plot
+```
+
+```{r qual_graph_2}
+#| title: Protein
+protein_detail_plot
+```
+
+```{r qual_graph_3}
+#| title: HSCC
+hscc_detail_plot
+```
+
+```{r qual_graph_4}
+#| title: SCC
+scc_detail_plot
+```
+
+```{r qual_graph_5}
+#| title: Bactoscan
+bs_detail_plot
+```
+
+
+### Yearly averages {.tabset}
+```{r qual_graph_6}
+#| title: Fat
+year_av_fat_plot
+
+```
+
+```{r qual_graph_7}
+#| title: Protein
+year_av_protein_plot
+```
+
+```{r qual_graph_8}
+#| title: HSCC
+year_av_hscc_plot
+```
+
+```{r qual_graph_9}
+#| title: SCC
+year_av_scc_plot
+```
+
+```{r qual_graph_10}
+#| title: Bactoscan
+year_av_bs_plot
+```
+
+### Monthly averages {.tabset}
+
+```{r qual_graph_11}
+#| title: Fat
+month_av_fat_plot
+```
+
+```{r qual_graph_12}
+#| title: Protien
+month_av_protein_plot
+```
+
+```{r qual_graph_13}
+#| title: HSCC
+month_av_hscc_plot
+```
+
+```{r qual_graph_14}
+#| title: SCC
+month_av_scc_plot
+```
+
+```{r qual_graph_15}
+#| title: Bactoscan
+month_av_bs_plot
+```
+
 
 # Fertility
 
-## Column {width="20%"}
+## Column {width="35%"}
+### Row {height="20%"}
+```{r summ_box_date_fert}
+layout_column_wrap(   
+value_box(
+    title = h1(HTML("Latest data entry")),
+    value = (paste(fert_latest_day, fert_latest_month, fert_latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+value_box(
+    title = h1(HTML("Summary month")),
+    value = (paste(fert_latest_month, fert_latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+),
+width = 1/2)
+```
+### Row {height="80%"}
+```{r summary boxes fertility}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Total cows calved <br>")),
+    value = (fert_latest_tot_cows_calved),
+    theme = "teal",
+  ),
+value_box(
+    title = h1(HTML("Total heifers calved <br>")),
+    value = (fert_latest_tot_heif_calved),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Total services <br>")),
+    value = (fert_latest_tot_services),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Total ovsynch <br>")),
+    value = (fert_latest_tot_ovsynch),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Total pregnant cows <br>")),
+    value = (fert_latest_tot_cows_pd),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Total pregnant heifers <br>")),
+    value = (fert_latest_tot_heif_pd),
+    theme = "teal"
+  ),
+  width = 1 / 2
+)
 
-summary boxes here
+```
 
-## Column
+## Graphs {.tabset}
 
-Graphs go here
+### Detailed trends {.tabset}
+
+```{r}
+#| title: Cows calved
+tot_cows_calved_plot_detail
+```
+
+```{r}
+#| title: Heifers calved
+tot_heif_calved_plot_detail
+```
+
+```{r}
+#| title: Pregnant cows 
+tot_cows_pd_plot_detail
+```
+
+```{r}
+#| title: Pregnant heifers
+tot_heif_pd_plot_detail
+```
+
+```{r}
+#| title: Services
+tot_services_plot_detail
+```
+
+```{r}
+#| title: Ovsynch
+tot_ovsynch_plot_detail
+```
+
+```{r}
+#| title: Dry off
+tot_dry_off_plot_detail
+```
+
+```{r}
+#| title: Dry tubes
+tot_dry_tubes_plot_detail
+```
+
+
+### Yearly totals {.tabset}
+```{r}
+#| title: Cows calved
+tot_cows_calved_plot_year
+```
+
+```{r}
+#| title: Heifers calved
+tot_heif_calved_plot_year
+```
+
+```{r}
+#| title: Pregnant cows 
+tot_cows_pd_plot_year
+```
+
+```{r}
+#| title: Pregnant heifers
+tot_heif_pd_plot_year
+```
+
+```{r}
+#| title: Services
+tot_services_plot_year
+```
+
+```{r}
+#| title: Ovsynch
+tot_ovsynch_plot_year
+```
+
+```{r}
+#| title: Dry off
+tot_dry_off_plot_year
+```
+
+```{r}
+#| title: Dry tubes
+tot_dry_tubes_plot_year
+```
+
+
+### Monthly averages {.tabset}
+```{r}
+#| title: Cows calved
+avg_cows_calved_plot_month
+```
+
+```{r}
+#| title: Heifers calved
+avg_heif_calved_plot_month
+```
+
+```{r}
+#| title: Pregnant cows
+avg_cows_pd_plot_month
+```
+
+```{r}
+#| title: Pregnant heifers
+avg_heif_pd_plot_month
+```
+
+```{r}
+#| title: Services
+avg_services_plot_month
+```
+
+```{r}
+#| title: Ovsynch
+avg_ovsynch_plot_month
+```
+
+```{r}
+#| title: Dry off
+avg_dry_off_plot_month
+```
+
+```{r}
+#| title: Dry tubes
+avg_dry_tubes_plot_month
+```
+
+
+
+# Health
+
+## Column {width="35%"}
+### Row {height="20%"}
+```{r summ_box_date_health}
+layout_column_wrap(   
+value_box(
+    title = h1(HTML("Latest data entry")),
+    value = (paste(health_latest_day, health_latest_month, health_latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+value_box(
+    title = h1(HTML("Summary month")),
+    value = (paste(health_latest_month, health_latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+),
+width = 1/2)
+```
+### Row {height="80%"}
+```{r summary boxes health}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Culls <br>")),
+    value = (health_latest_culls),
+    theme = "teal",
+  ),
+value_box(
+    title = h1(HTML("Deaths <br>")),
+    value = (health_latest_deaths),
+    theme = "teal"
+  ),
+value_box(
+    title = h1(HTML("Total exits <br>")),
+    value = (health_latest_exit),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Mastisis <br>")),
+    value = (health_latest_mastisis),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Milk fever <br>")),
+    value = (health_latest_milk_fever),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("DA <br>")),
+    value = (health_latest_da),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Cystic <br>")),
+    value = (health_latest_cystic),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Lameness <br>")),
+    value = (health_latest_lameness),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("RFM <br>")),
+    value = (health_latest_rfm),
+    theme = "teal"
+  ),
+value_box(
+    title = h1(HTML("Total health issues <br>")),
+    value = (sum(health_latest_mastisis,health_latest_da,health_latest_cystic,health_latest_lameness,health_latest_lameness,health_latest_rfm)),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Dirty pnc <br>")),
+    value = (health_latest_dirty_pnc),
+    theme = "teal"
+  ),
+  value_box(
+    title = h1(HTML("Treatments <br>")),
+    value = (health_latest_treatments),
+    theme = "teal"
+  ),
+  width = 1 / 3
+)
+
+```
+
+## Graphs {.tabset}
+### Detailed trends {.tabset}
+
+```{r}
+
+```
+
+### Yearly averages {.tabset}
+```{r}
+
+```
+
+### Monthly averages {.tabset}
+```{r}
+
+```
+
 
 # Stock Take
 
-## Column {width="20%"}
+## Column {width="35%"}
 
-summary boxes here
+```{r summary boxes stock_take}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Month")),
+    value = (paste(latest_month, latest_year)),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (latest_inmilk_av),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+    value_box(
+    title = h1(HTML("Cows in tank <br>")),
+    value = (latest_intank_av),
+    theme = "success",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  
+  width = 1 / 1
+)
 
-## Column
+```
 
-Graphs go here
+## Graphs {.tabset}
+
+### Detailed trends {.tabset}
+
+```{r}
+#| title: Cows in milk
+in_milk_detail_plot
+```
+
+```{r}
+#| title: Cows in tank
+in_tank_detail_plot
+```
+
+### Yearly averages and totals {.tabset}
+
+```{r}
+#| title: Cows in milk
+year_av_in_milk_plot 
+```
+
+```{r}
+#| title: Cows in tank
+year_av_in_tank_plot
+```
+
+### Monthly averages and totals {.tabset}
+```{r}
+#| title: Cows in milk
+month_av_in_milk_plot
+```
+
+```{r}
+#| title: Cows in tank
+month_av_in_tank_plot
+```
 
 # Data
 

@@ -35,7 +35,7 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Number of cows in milk", 
-       fill = "Year") +
+       fill = "Month") +
   scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
@@ -55,7 +55,7 @@ prod_data %>%
   ggplot(aes(x = year, y = mean_in_tank, fill = as.factor(year))) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Year", 
-       y = "Number of cows in milk", 
+       y = "Number of cows in tank", 
        fill = "Year") +
   scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
@@ -76,8 +76,8 @@ prod_data %>%
   ggplot(aes(x = month, y = mean_in_tank, fill = as.factor(month))) +
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
-       y = "Number of cows in milk", 
-       fill = "Year") +
+       y = "Number of cows in tank", 
+       fill = "Month") +
   scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
@@ -116,7 +116,7 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Average milk production per day (Litres)", 
-       fill = "Year") +
+       fill = "Month") +
   # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
@@ -166,7 +166,7 @@ prod_data %>%
 
 
 # month averages 
-year_av_milk_prod_cow_plot <- 
+month_av_milk_prod_cow_plot <- 
 prod_data %>% 
   group_by(month) %>%
   summarise(mean_v = round(mean(milk_per_cow_prod, na.rm = TRUE),0)) %>% 
@@ -174,7 +174,7 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Average milk production per cow \nper day (Litres)", 
-       fill = "Year") +
+       fill = "Month") +
  # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
@@ -184,7 +184,7 @@ prod_data %>%
   theme_m.nl 
 
 # month total 
-year_tot_milk_prod_cow_plot <- 
+month_tot_milk_prod_cow_plot <- 
 prod_data %>% 
   group_by(month) %>%
   summarise(total_v = round(sum(milk_per_cow_prod, na.rm = TRUE),0)) %>% 
@@ -192,7 +192,7 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Total milk production per cow \nper day (Litres)", 
-       fill = "Year") +
+       fill = "Month") +
   # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
@@ -212,7 +212,7 @@ prod_data %>%
   labs(x = "Year", 
        y = "High Somatic Cell Count (unit?)", 
        fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
   scale_fill_manual(
     values = year_pal) + 
@@ -231,8 +231,8 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "High Somatic Cell Count (unit?)", 
-       fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+       fill = "Month") +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
   # facet_wrap(vars(year)
@@ -254,7 +254,7 @@ prod_data %>%
   labs(x = "Year", 
        y = "Somatic Cell Count (unit?)", 
        fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+ # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
   scale_fill_manual(
     values = year_pal) + 
@@ -273,8 +273,8 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Somatic Cell Count (unit?)", 
-       fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+       fill = "Month") +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
   # facet_wrap(vars(year)
@@ -294,7 +294,7 @@ prod_data %>%
   labs(x = "Year", 
        y = "Bactoscan (unit?)", 
        fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
   scale_fill_manual(
     values = year_pal) + 
@@ -313,8 +313,8 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "BactoScan (unit?)", 
-       fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+       fill = "Month") +
+ # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
   # facet_wrap(vars(year)
@@ -335,7 +335,7 @@ prod_data %>%
   labs(x = "Year", 
        y = "Fat (unit?)", 
        fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
   scale_fill_manual(
     values = year_pal) + 
@@ -354,8 +354,8 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Fat (unit?)", 
-       fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+       fill = "Month") +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
   # facet_wrap(vars(year)
@@ -375,7 +375,7 @@ prod_data %>%
   labs(x = "Year", 
        y = "Protein (unit?)", 
        fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+  #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_x_continuous(breaks = seq(2018, 2023, 1)) +
   scale_fill_manual(
     values = year_pal) + 
@@ -394,8 +394,8 @@ prod_data %>%
   geom_bar(stat = "identity", position = "dodge") +
   labs(x = "Month", 
        y = "Protein (unit?)", 
-       fill = "Year") +
-  scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
+       fill = "Month") +
+ # scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   scale_fill_manual(
     values = cb_pal_2) + 
   # facet_wrap(vars(year)
