@@ -6,7 +6,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = cows_calved_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of cows calved",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -62,7 +62,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = heifers_calved_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of heifers calved",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -114,7 +114,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = cows_pd_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of pregnant cows",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -167,7 +167,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = heifer_pd_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of pregnant heifers",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -219,7 +219,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = services_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of services",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -272,7 +272,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = ovsynch_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of ovsynch",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -324,7 +324,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = dry_off_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of dry off cows",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
@@ -377,7 +377,7 @@ fert_data %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = dry_tubes_fert)) +
   geom_line(aes(colour = year)) +
-  labs(x = "Date", 
+  labs(x = "Day of year", 
        y = "Number of dry tube cows",
        colour = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +

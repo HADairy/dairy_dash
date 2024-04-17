@@ -564,20 +564,76 @@ value_box(
 ### Detailed trends {.tabset}
 
 ```{r}
+#| title: Exits
+exits_plot_detail
+```
+
+```{r}
+#| title: Health issues
+issues_plot_detail
+```
+
+```{r}
 
 ```
 
-### Yearly averages {.tabset}
+```{r}
+
+```
+
+```{r}
+
+```
+
+### Yearly summaries {.tabset}
+```{r}
+#| title: Exits
+tot_exit_year_plot
+```
+
+```{r}
+#| title: Exit reasons
+exit_reasons_year_plot
+```
+
+```{r}
+#| title: Health issues
+tot_issues_year_plot
+```
+
+```{r}
+#| title: Health issue types
+issues_cause_year_plot
+```
+
 ```{r}
 
 ```
 
 ### Monthly averages {.tabset}
 ```{r}
-
+#| title: Exits
+avg_exit_month_plot
 ```
 
+```{r}
+#| title: Exit reasons
+av_exit_reason_month_plot
+```
 
+```{r}
+#| title: Health issues
+avg_issues_month_plot
+```
+
+```{r}
+#| title: Health issue types
+av_issues_cause_month_plot
+```
+
+```{r}
+
+```
 # Stock Take
 
 ## Column {width="35%"}

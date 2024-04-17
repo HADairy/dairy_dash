@@ -174,26 +174,29 @@ health_summary <-
     tot_lameness = sum(lamenesss_health, na.rm = TRUE),
     tot_rfm = sum(rfm_health, na.rm = TRUE)
   ) %>%
-  ungroup() %>%
+  ungroup() 
+
+
+health_summary_month <- health_summary %>%
   filter(!is.na(total_exit)) %>%
   filter(year == max(year)) %>%
-  filter(month == max(month)) %>% view()
+  filter(month == max(month)) 
 
-health_latest_year <- health_summary$year
-health_latest_month <- health_summary$month
-health_latest_day <- health_summary$day
+health_latest_year <- health_summary_month$year
+health_latest_month <- health_summary_month$month
+health_latest_day <- health_summary_month$day
 
-health_latest_exit <- health_summary$total_exit
-health_latest_culls <- health_summary$tot_culls
-health_latest_deaths <- health_summary$tot_deaths
-health_latest_mastisis <- health_summary$tot_mastitis
-health_latest_milk_fever <- health_summary$tot_milk_fever
-health_latest_da <- health_summary$tot_da
-health_latest_cystic <- health_summary$tot_cystic
-health_latest_treatments <- health_summary$tot_treatments
-health_latest_dirty_pnc <- health_summary$tot_dirty_pnc
-health_latest_rfm <- health_summary$tot_rfm
-health_latest_lameness <- health_summary$tot_lameness
+health_latest_exit <- health_summary_month$total_exit
+health_latest_culls <- health_summary_month$tot_culls
+health_latest_deaths <- health_summary_month$tot_deaths
+health_latest_mastisis <- health_summary_month$tot_mastitis
+health_latest_milk_fever <- health_summary_month$tot_milk_fever
+health_latest_da <- health_summary_month$tot_da
+health_latest_cystic <- health_summary_month$tot_cystic
+health_latest_treatments <- health_summary_month$tot_treatments
+health_latest_dirty_pnc <- health_summary_month$tot_dirty_pnc
+health_latest_rfm <- health_summary_month$tot_rfm
+health_latest_lameness <- health_summary_month$tot_lameness
 
 
 
