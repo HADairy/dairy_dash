@@ -16,6 +16,9 @@ source("scripts/pallettes.R")
 source("scripts/data_prep.R")
 source("scripts/data_prep_02.R")
 
+#load summary box things
+source("scripts/summary_box_data_prep.R")
+
 #load graph objects
 source("scripts/graphs.R")
 

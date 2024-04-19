@@ -16,6 +16,12 @@ status_pal <- c("#023859",
                 "#0388A6", 
                 "#468A50")
 
+fert_pal <- c("#468a50", 
+              "#a8a516",  
+              "#ffa600")
+
+exits_pal <- c( "#F28A80",
+                "#A63740")
 
 
 year_pal <- c("#468a50", 
@@ -26,8 +32,6 @@ year_pal <- c("#468a50",
               "#ffa600")
 
 
-exits_pal <- c( "#F28A80",
-                "#A63740")
 
 issues_pal <- c("#fff584",
                 "#e6ce65",

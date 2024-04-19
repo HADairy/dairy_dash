@@ -22,8 +22,9 @@ source("master_script.R")
 ```{r summary boxes}
 layout_column_wrap(
   value_box(
-    title = h1(HTML("Cows in milk <br>")),
-    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    title = h1(HTML("Avg. yield <br>"), latest_comp_year_prod),
+    value = latest_yield,
+    p(HTML("Litres/day/cow")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -32,9 +33,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production <br>")),
-    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
-    p(HTML("hectolitres")),
+    title = h1(HTML("Avg. Protien <br>"), latest_comp_year_prod),
+    value = latest_protein,
+    p(HTML("%")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -43,9 +44,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production per cow <br>")),
-    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
-    p(HTML("litres")),
+    title = h1(HTML("Avg. Butterfat <br>"), latest_comp_year_prod),
+    value = latest_fat,
+    p(HTML("%")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -67,55 +68,35 @@ map
 
 ## Graphs {.tabset}
 
-```{r}
-#| title: Daily yield
- tot_yield_day_plot
-```
-
-```{r}
-#| title: Weekly yield
- tot_yield_week_plot
-```
 
 ```{r}
 #| title: Daily yield per cow
  yield_per_cow_day_plot
 ```
 
+
 ```{r}
-#| title: Weekly yield per cow
- yield_per_cow_week_plot
+#| title: Daily protein
+daily_protein_plot
 ```
 
 
 ```{r}
-#| title: Weekly average protien
-week_av_protein_plot
+#| title: Daily butterfat
+daily_fat_plot
 ```
 
 
-```{r}
-#| title: Weekly average butterfat
-week_av_fat_plot
-```
 
-```{r}
-#| title: Weekly average SCC
-week_av_scc_plot
-```
-
-```{r}
-#| title: Weekly average bactoscan
-week_av_bs_plot
-```
 # Fertility and health
 ## Column {width="35%"}
 ### Row {height="25%"}
 ```{r summary boxes fert}
 layout_column_wrap(
   value_box(
-    title = h1(HTML("Cows in milk <br>")),
-    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    title = h1(HTML("Calving events <br>"), latest_comp_year_fert),
+    value = tot_calves,
+    p(HTML("events")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -124,9 +105,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production <br>")),
-    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
-    p(HTML("hectolitres")),
+    title = h1(HTML("Health issues <br>"), latest_comp_year_fert),
+    value = tot_health,
+    p(HTML("records")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -135,9 +116,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production per cow <br>")),
-    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
-    p(HTML("litres")),
+    title = h1(HTML("Herd exits <br>"), latest_comp_year_fert),
+    value = tot_exit,
+    p(HTML("exits")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -159,14 +140,34 @@ map
 
 ## Graphs {.tabset}
 
+```{r}
+#| title: Fertility events
+fert_events_plot
+
+```
+
+```{r}
+#| title: Health issues
+
+issues_cause_count_plot
+```
+
+
+```{r}
+#| title: Herd exits
+
+exit_count_plot
+```
+
 # Stock take
 ## Column {width="35%"}
 ### Row {height="25%"}
 ```{r summary boxes_st}
 layout_column_wrap(
   value_box(
-    title = h1(HTML("Cows in milk <br>")),
-    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    title = h1(HTML("Avg. in milk <br>"), latest_comp_year_st),
+    value = tot_in_milk_latest,
+      p(HTML("cows")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -175,9 +176,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production <br>")),
-    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
-    p(HTML("hectolitres")),
+    title = h1(HTML("Avg. in tank <br>"), latest_comp_year_st),
+    value = tot_in_tank_latest,
+    p(HTML("cows")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
@@ -186,9 +187,9 @@ layout_column_wrap(
     height = 150L
   ),
   value_box(
-    title = h1(HTML("Milk production per cow <br>")),
-    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
-    p(HTML("litres")),
+    title = h1(HTML("Avg. dry <br>"), latest_comp_year_st),
+    value = tot_dry_lastest,
+     p(HTML("cows")),
     theme = "teal",
     showcase = NULL,
     showcase_layout = "left center",
