@@ -5,13 +5,13 @@ my_comma <-
                       big.mark = ",",
                       decimal.mark = ".")
 
-
+prod_data_og <- prod_data
 
 # production data
 # prod_data
 # glimpse(prod_data)
 # create new variables for month and year
-prod_data <-  prod_data %>%
+prod_data <-  prod_data_og %>%
   mutate(month = month(ymd(date), label = TRUE), .after = date) %>%
   mutate(year = year(ymd(date)), .after = date) %>%
   mutate(day = day(ymd(date)), .after = date)

@@ -90,10 +90,11 @@ exits_plot_detail <-
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = exit_count)) +
-  geom_line(aes(colour = exit_type)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(exit_type), fill = as.factor(exit_type))) +
   labs(x = "Day of year", 
        y = "Number of exits",
-       colour = "Exit reason") +
+       colour = "Exit reason", 
+       fill = "Exit reason") +
     scale_colour_manual(labels = c("Culls", "Deaths"),
                       limits = c("culls_exit", "deaths_exit"),
                       values = exits_pal) + 
@@ -204,10 +205,11 @@ issues_plot_detail <-
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = issue_count)) +
-  geom_line(aes(colour = issue_type), linewidth = 1) +
+  geom_smooth(method = "loess", aes(colour = as.factor(issue_type), fill = as.factor(issue_type))) +
   labs(x = "Day of year", 
        y = "Number of health issues recorded",
-       colour = "Health issue") +
+       colour = "Health issue",
+       fill = "Health issue") +
   scale_colour_manual(labels = c("Cystic", "DA", "Lameness", "Mastisis", "Milk Fever", "RFM"),
                     limits = c("cystic_health", "da_health", "lamenesss_health", 
                                "mastitis_health", "milk_fever_health", "rfm_health"),

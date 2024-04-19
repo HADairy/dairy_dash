@@ -411,10 +411,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = cows_in_milk_prod, colour = year)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of cows in milk",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -425,10 +426,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = cows_in_tank_prod, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of cows in tank",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -439,10 +441,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = milk_prod/100, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Total milk production per day (Decalitres)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -453,10 +456,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = milk_per_cow_prod, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Total milk production per \n day per cow (Litres)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -467,10 +471,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = HSCC_mqual, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "High Somatic Cell Count (units?)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -481,10 +486,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = SCC_mqual, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Somatic Cell Count (units?)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -495,10 +501,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = BS_mqual, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "BactoScan (units?)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -508,11 +515,12 @@ fat_detail_plot <-
 prod_data %>% 
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
-  ggplot(aes(x = year_day, y = Fat_mqual, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  ggplot(aes(x = year_day, y = Fat_mqual, colour = as.factor(year), fill = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Fat (units?)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 
@@ -524,10 +532,11 @@ prod_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date), .after = year) %>% 
   ggplot(aes(x = year_day, y = Protein_mqual, colour = as.factor(year))) +
-  geom_line(aes(colour = as.factor(year))) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Protien (units?)",
-       colour = "Year") +
+       colour = "Year",
+       fill = "Year") +
   #scale_y_continuous(expand = c(0,0), limits = c(0, 400), breaks = seq(0,375, 50)) +
   theme_bw() +
   theme_m.rl 

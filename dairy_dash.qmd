@@ -72,6 +72,7 @@ layout_column_wrap(
 
 ```
 
+map
 
 ## Graphs {.tabset}
 
@@ -104,12 +105,12 @@ year_av_milk_prod_cow_plot
 
 ```{r yield_graph_5}
 #| title: Daily milk production
-year_av_milk_prod_cow_plot
+month_av_in_milk_plot
 ```
 
 ```{r yield_graph_6}
 #| title: Daily milk production per cow
-month_av_in_milk_plot
+month_av_milk_prod_cow_plot
 ```
 
 
@@ -198,11 +199,6 @@ fat_detail_plot
 protein_detail_plot
 ```
 
-```{r qual_graph_3}
-#| title: HSCC
-hscc_detail_plot
-```
-
 ```{r qual_graph_4}
 #| title: SCC
 scc_detail_plot
@@ -226,11 +222,6 @@ year_av_fat_plot
 year_av_protein_plot
 ```
 
-```{r qual_graph_8}
-#| title: HSCC
-year_av_hscc_plot
-```
-
 ```{r qual_graph_9}
 #| title: SCC
 year_av_scc_plot
@@ -251,11 +242,6 @@ month_av_fat_plot
 ```{r qual_graph_12}
 #| title: Protien
 month_av_protein_plot
-```
-
-```{r qual_graph_13}
-#| title: HSCC
-month_av_hscc_plot
 ```
 
 ```{r qual_graph_14}

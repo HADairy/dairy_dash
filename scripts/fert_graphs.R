@@ -5,7 +5,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = cows_calved_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of cows calved",
        colour = "Year") +
@@ -61,7 +61,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = heifers_calved_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of heifers calved",
        colour = "Year") +
@@ -113,7 +113,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = cows_pd_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of pregnant cows",
        colour = "Year") +
@@ -166,7 +166,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = heifer_pd_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of pregnant heifers",
        colour = "Year") +
@@ -218,7 +218,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = services_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of services",
        colour = "Year") +
@@ -271,7 +271,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = ovsynch_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of ovsynch",
        colour = "Year") +
@@ -323,7 +323,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = dry_off_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of dry off cows",
        colour = "Year") +
@@ -376,7 +376,7 @@ fert_data %>%
   mutate(across(c(year), ~as.factor(.x))) %>%
   mutate(year_day = yday(date)) %>%
   ggplot(aes(x = year_day, y = dry_tubes_fert)) +
-  geom_line(aes(colour = year)) +
+  geom_smooth(method = "loess", aes(colour = as.factor(year), fill = as.factor(year))) +
   labs(x = "Day of year", 
        y = "Number of dry tube cows",
        colour = "Year") +

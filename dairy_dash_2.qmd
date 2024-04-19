@@ -1,0 +1,269 @@
+---
+title: "HAU Dairy"
+logo: "images/nl_agridat_hex_tp.png"
+format: dashboard
+#server: shiny
+date-modified: 2024-03-27
+orientation: columns
+expandable: false
+theme: flatly_edited.scss
+embed-resources: true
+---
+
+```{r Dashboard set up, echo=FALSE}
+
+source("master_script.R")
+
+```
+
+# Production
+## Column {width="35%"}
+### Row {height="25%"}
+```{r summary boxes}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production <br>")),
+    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
+    p(HTML("hectolitres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production per cow <br>")),
+    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
+    p(HTML("litres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+
+  width = 1 / 3
+)
+
+```
+
+### Row {height="75%"}
+
+```{r leaflet_prod}
+map
+```
+
+## Graphs {.tabset}
+
+```{r}
+#| title: Daily yield
+ tot_yield_day_plot
+```
+
+```{r}
+#| title: Weekly yield
+ tot_yield_week_plot
+```
+
+```{r}
+#| title: Daily yield per cow
+ yield_per_cow_day_plot
+```
+
+```{r}
+#| title: Weekly yield per cow
+ yield_per_cow_week_plot
+```
+
+
+```{r}
+#| title: Weekly average protien
+week_av_protein_plot
+```
+
+
+```{r}
+#| title: Weekly average butterfat
+week_av_fat_plot
+```
+
+```{r}
+#| title: Weekly average SCC
+week_av_scc_plot
+```
+
+```{r}
+#| title: Weekly average bactoscan
+week_av_bs_plot
+```
+# Fertility and health
+## Column {width="35%"}
+### Row {height="25%"}
+```{r summary boxes fert}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production <br>")),
+    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
+    p(HTML("hectolitres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production per cow <br>")),
+    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
+    p(HTML("litres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+
+  width = 1 / 3
+)
+
+```
+
+### Row {height="75%"}
+
+```{r leaflet_fert}
+map
+```
+
+## Graphs {.tabset}
+
+# Stock take
+## Column {width="35%"}
+### Row {height="25%"}
+```{r summary boxes_st}
+layout_column_wrap(
+  value_box(
+    title = h1(HTML("Cows in milk <br>")),
+    value = (round(mean(prod_data$cows_in_milk_prod, na.rm = TRUE),2)),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production <br>")),
+    value = (round(mean(prod_data$milk_prod, na.rm=TRUE),2)/ 100),
+    p(HTML("hectolitres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+  value_box(
+    title = h1(HTML("Milk production per cow <br>")),
+    value = (round(mean(prod_data$milk_per_cow_prod, na.rm = TRUE),2)),
+    p(HTML("litres")),
+    theme = "teal",
+    showcase = NULL,
+    showcase_layout = "left center",
+    full_screen = TRUE,
+    fill = FALSE,
+    height = 150L
+  ),
+
+  width = 1 / 3
+)
+
+```
+
+### Row {height="75%"}
+
+```{r leaflet_st}
+map
+```
+
+
+## Graphs {.tabset}
+
+```{r}
+#| title: Stock take - Milk status
+stock_take_graph
+```
+
+# Data
+
+## Column {.tabset width="70%"}
+
+```{r}
+#| title: Production
+
+datatable(prod_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+```{r}
+#| title: Fertility and Health 
+
+datatable(fert_health_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+```{r}
+#| title: Stock take 
+datatable(stock_take_data, filter = list(position = 'topleft', clear = FALSE),
+          extensions = 'Buttons',
+          options = list(dom = 'Bfrtip',
+                         buttons = c('copy')))
+
+```
+
+## Column {width="30%"}
+
+### Row {height="25%"}
+
+::: {.card title="Download the data"}
+[Download excel file](https://github.com/HADairy/dairy_dash/raw/main/HA_dairy_master.xlsx)
+
+:::
+
+### Row {.tabset height="75%"}
+
+::: {.card title="Information"}
+ADD DATA INFORMATION HERE
+
+**Comments**
+
+ADD ANY DATA COMMENTS HERE
+:::
