@@ -71,6 +71,7 @@ map
 
 ```{r}
 #| title: Daily yield per cow
+#| fig-cap: The average milk yield produced per cow in the Harper Adams dairy unit for the years 2018 to 2023. The fitted line represents the overall trends of daily milk yield per cow using a LOESS curve plotted using the function y ~ x. Ribbons represent the 95% confidence interval. The average yield per cow is a precalculated variable. 
  yield_per_cow_day_plot
 ```
 
@@ -78,12 +79,14 @@ map
 ```{r}
 #| title: Daily protein
 daily_protein_plot
+#| fig-cap: The daily proportion of protien in milk produced from in the Harper Adams dairy unit for the years 2018 to 2023. The fitted line represents the overall trends of protien proportion using a LOESS curve plotted using the function y ~ x. Ribbons represent the 95% confidence interval. 
 ```
 
 
 ```{r}
 #| title: Daily butterfat
 daily_fat_plot
+#| fig-cap: The daily proportion of butterfat in milk produced from in the Harper Adams dairy unit for the years 2018 to 2023. The fitted line represents the overall trends of butterfat proportion using a LOESS curve plotted using the function y ~ x. Ribbons represent the 95% confidence interval. 
 ```
 
 
@@ -142,12 +145,14 @@ map
 
 ```{r}
 #| title: Fertility events
+#| fig-cap: The overall trend of calvings, positive pregnancies and servicing events occuring in the Harper Adams dairy unit for the years 2018 to 2023. The fitted lines represents the overall trends of fertility events using a LOESS curve plotted using the function y ~ x. Ribbons represent the 95% confidence interval. 
 fert_events_plot
 
 ```
 
 ```{r}
 #| title: Health issues
+#| fig-cap: The total number of health issues recorded each year from the Harper Adams dairy unit from 2018 to 2023. Data is represented using a stacked bar chart with colours representing the quantity of health issue reports for health issues specified in the legend. 
 
 issues_cause_count_plot
 ```
@@ -155,6 +160,7 @@ issues_cause_count_plot
 
 ```{r}
 #| title: Herd exits
+#| fig-cap: The total number of exits from the Harper Adams dairy herd for each year forthe Harper Adams dairy unit from 2018 to 2023. Data is represented using a stacked bar chart with colours representing the different reasons for herd exits as specified in the legend. 
 
 exit_count_plot
 ```
@@ -214,6 +220,7 @@ map
 
 ```{r}
 #| title: Stock take - Milk status
+#| fig-cap: The total number of cows in the Harper Adams dairy unit that were recorded as in milk, in tank or dry. The fitted line represents the overall trends of cow milk status using LOESS curves plotted using the function y ~ x. Ribbons represent the 95% confidence interval. 
 stock_take_graph
 ```
 
